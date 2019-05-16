@@ -1,0 +1,49 @@
+server:
+  port: 9060
+spring:
+  banner:
+    location: classpath:banner.txt
+  application:
+    name: account
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName : org.h2.Driver
+    username: h2
+    password: h2
+  h2:
+    console:
+      enabled: true
+  management:
+    endpoint:
+      health: /actuator/health
+      info: /actuator/info
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+    home-page-url: http://localhost:9080/
+    nonSecurePort : ${server.port}
+    #### alter these 2 in production
+    nonSecurePortEnabled: true
+    securePortEnabled: false
+    #### alter these 2 in production
+  client:
+    healthcheck:
+      enabled: true
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:9050/eureka/
+
+info:
+  app:
+    Encoding: @project.build.sourceEncoding@
+    Source: @java.version@
+    Target: @java.version@
+    Version: V1.0
+    App-Name: ${spring.application.name}
+    Desription: API for user trasaction, and history tracking.
+    Micro-service-Registry: ${eureka.client.serviceUrl.defaultZone}
+    Support-group : mail@bank.com
+

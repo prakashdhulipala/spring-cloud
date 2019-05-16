@@ -1,0 +1,39 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: transactions
+
+management:
+  endpoints:
+    web:
+      base-path: /admin
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+    statusPageUrlPath: ${management.endpoints.web.base-path}/info
+    healthCheckUrlPath: ${management.endpoints.web.base-path}/health
+    home-page-url: ${${vcap.application.uris[0]}:http://localhost:9080/}
+    nonSecurePort : ${server.port}
+    #### alter these 2 in production
+    nonSecurePortEnabled: true
+    securePortEnabled: false
+    #### alter these 2 in production
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:9050/eureka/
+
+info:
+  app:
+    Encoding: @project.build.sourceEncoding@
+    Source: @java.version@
+    Target: @java.version@
+    Version: V1.0
+    App-Name: ${spring.application.name}
+    Desription: API for user trasaction, and history tracking.
+    Micro-service-Registry: ${eureka.client.serviceUrl.defaultZone}
+    Support-group : mail@bank.com
+
