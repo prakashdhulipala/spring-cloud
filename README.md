@@ -1,4 +1,4 @@
-# spring-cloud 
+## spring-cloud 
 
 This sample modules contains projects with microservices and expose data as rest end points, based on spring cloud netflix architecture
 
