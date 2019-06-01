@@ -28,7 +28,8 @@ This sample modules contains projects with microservices and expose data as rest
    - Intermediate layer helps enforce security policies and improve the system scalability by enabling load-balancing
 
 ## Source code style/navigation
-    1. Setting will be found in properties/yml file
-    2. Configurations will be found in *Config.java file
-    3. All modules follows MVC pattern and Controller -> service -> repository hirarchy for all rest api response
-    4. All api are rest only and consumes/produces json/xml response as standerd.
+
+1. Setting will be found in properties/yml file
+2. Configurations will be found in *Config.java file
+3. All modules follows MVC pattern and Controller -> service -> repository hirarchy for all rest api response
+4. All api are rest only and consumes/produces json/xml response as standerd.
