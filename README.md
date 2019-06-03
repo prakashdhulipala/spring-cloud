@@ -6,7 +6,7 @@ This sample modules contains projects with microservices and expose data as rest
 
 1. Uniform Interface:
    - Individual resources are identified using URLS.
-   - fgffbg hb7hClient can manipulate the resource through the representations with permissions. 
+   - Client can manipulate the resource through the representations with permissions. 
    - Each message sent between the client and the server is self-descriptive and includes enough information to describe how it is to be processed.
    - The hypermedia (hyperlinks) and hypertext act as the engine for state transfer.
 
